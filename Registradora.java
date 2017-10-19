@@ -4,8 +4,9 @@ package sistemamercado;
 
 public class Registradora {
     EspecProduto spec = new EspecProduto();
-    Venda venda = new Venda(spec);
+    Venda venda;
     public void novaVenda(){
+        venda = new Venda(spec);
         venda.incluirItemDeVenda();
     }
 }
