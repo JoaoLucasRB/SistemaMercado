@@ -6,6 +6,7 @@ public class Venda {
     EspecProduto spec;
     Scanner ent = new Scanner(System.in);
     ArrayList listaProdutos = new ArrayList();
+    ItemDeVenda item;
     public Venda(EspecProduto spec){
         this.spec = spec;
     }
@@ -13,7 +14,7 @@ public class Venda {
     public void incluirItemDeVenda(){
         Scanner ent = new Scanner(System.in);
         int id = ent.nextInt();
-        ItemDeVenda item = new ItemDeVenda();
+        item = new ItemDeVenda();
         CatalProdutos catal = new CatalProdutos(spec,item);
         catal.encontrar(id);
         listaProdutos.add(item);
