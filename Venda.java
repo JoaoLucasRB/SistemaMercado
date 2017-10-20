@@ -10,7 +10,9 @@ public class Venda {
     Registradora reg;
     float Total = 0;
     Boolean condicao = false;
+    
     public Venda(EspecProduto spec, Registradora reg){
+        listaProdutos.toArray();
         this.spec = spec;
         this.reg = reg;
     }
@@ -21,6 +23,7 @@ public class Venda {
         Pagamento pag = new Pagamento();
         float valor;
         Scanner ent = new Scanner(System.in);
+        System.out.println("\n\nTotal: " + this.Total);
         System.out.println("Valor Recebido: ");
         valor = ent.nextFloat();
         if(valor < this.Total){
@@ -28,18 +31,23 @@ public class Venda {
             this.encerrarVenda();
         }
         System.out.println("Troco: " + pag.gerarTroco(this.Total, valor));
+        listaProdutos.clear();
     }
     
     public void incluirItemDeVenda(){
         Scanner ent = new Scanner(System.in);
-        System.out.println("ID: ");
-        int id = ent.nextInt();
-        item = new ItemDeVenda();
-        CatalProdutos catal = new CatalProdutos(spec,item);
-        catal.encontrar(id);
-        this.Total = this.Total + item.preco;
-        listaProdutos.add(item);
-        this.listarItemDeVenda();
+        try{
+            System.out.println("ID: ");
+            int id = ent.nextInt();
+            item = new ItemDeVenda();
+            CatalProdutos catal = new CatalProdutos(spec,item);
+            catal.encontrar(id);
+            this.Total = this.Total + item.preco;
+            listaProdutos.add(item);
+            this.listarItemDeVenda();
+        }catch(NullPointerException e){
+            System.out.println("\nID Inexistente. Tente Novamente.");
+        }
     }
     
     public void listarItemDeVenda(){
@@ -48,4 +56,14 @@ public class Venda {
             ItemDeVenda proximoItem = (ItemDeVenda) i.next();
             System.out.println(proximoItem.toString());
         }       
+    }
+    
+    public void removerItem(){
+        Scanner ent = new Scanner(System.in);
+        System.out.println("\nInsira o numero da posição referente ao item: ");
+        int n = ent.nextInt();
+        listaProdutos.get(n-1);
+        Total = Total - item.preco;
+        listaProdutos.remove(n-1);
+        this.listarItemDeVenda();
     }
