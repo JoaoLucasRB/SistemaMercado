@@ -11,13 +11,11 @@ public class Venda {
     float Total = 0;
     Boolean condicao = false;
     
-    public Venda(EspecProduto spec, Registradora reg){
+   public Venda(EspecProduto spec){
         listaProdutos.toArray();
         this.spec = spec;
         this.reg = reg;
     }
-    
-    
     
     public void encerrarVenda(){
         Pagamento pag = new Pagamento();
