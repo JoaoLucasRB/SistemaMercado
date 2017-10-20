@@ -5,12 +5,7 @@ import java.util.*;
 public class Registradora {
     EspecProduto spec = new EspecProduto();
     Venda venda;
-    Registradora reg;
     
-    
-    public Registradora(){
-        this.reg = reg;
-    }
     public void menuRegistradora(){    
         try{
             Scanner ent = new Scanner(System.in);
@@ -37,12 +32,14 @@ public class Registradora {
     }
     
     public void menuVenda(){
+        try{
         int id = 0;
         Scanner ent = new Scanner(System.in);
         System.out.println("\nTotal: " + venda.Total);
         System.out.println("1. Incluir novo Item");
-        System.out.println("2. Encerrar Venda");
-        try{
+        System.out.println("2. Remover item");
+        System.out.println("0. Encerrar Venda");
+        
                 System.out.println("Opcao: ");
                 id = ent.nextInt();
             
@@ -52,6 +49,10 @@ public class Registradora {
                     this.menuVenda();
                 }
                 case 2:{
+                    venda.removerItem();
+                    this.menuVenda();
+                }
+                case 0:{
                     venda.encerrarVenda();
                     this.menuRegistradora();
                 }
