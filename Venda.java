@@ -3,6 +3,7 @@ package sistemamercado;
 import java.util.*;
 
 public class Venda {
+    
     EspecProduto spec;
     Scanner ent = new Scanner(System.in);
     ArrayList listaProdutos = new ArrayList();
@@ -11,11 +12,13 @@ public class Venda {
     float Total = 0;
     Boolean condicao = false;
     
-   public Venda(EspecProduto spec){
+    public Venda(EspecProduto spec){
         listaProdutos.toArray();
         this.spec = spec;
         this.reg = reg;
     }
+    
+    
     
     public void encerrarVenda(){
         Pagamento pag = new Pagamento();
@@ -37,6 +40,7 @@ public class Venda {
         try{
             System.out.println("ID: ");
             int id = ent.nextInt();
+            System.out.println("\n");
             item = new ItemDeVenda();
             CatalProdutos catal = new CatalProdutos(spec,item);
             catal.encontrar(id);
@@ -50,18 +54,26 @@ public class Venda {
     
     public void listarItemDeVenda(){
         Iterator i = listaProdutos.iterator();
-        while(i.hasNext()){
+        int n=0;
+        while(i.hasNext()){   
             ItemDeVenda proximoItem = (ItemDeVenda) i.next();
-            System.out.println(proximoItem.toString());
+            System.out.println((++n) + " - " + proximoItem.toString());
         }       
     }
     
     public void removerItem(){
-        Scanner ent = new Scanner(System.in);
-        System.out.println("\nInsira o numero da posição referente ao item: ");
-        int n = ent.nextInt();
-        listaProdutos.get(n-1);
-        Total = Total - item.preco;
-        listaProdutos.remove(n-1);
-        this.listarItemDeVenda();
-    }
+        try{
+            Scanner ent = new Scanner(System.in);
+            System.out.println("\nInsira o numero da posição referente ao item: ");
+            int n = ent.nextInt();
+            listaProdutos.get(n-1);
+            Total = Total - item.preco;
+            listaProdutos.remove(n-1);
+            this.listarItemDeVenda();
+        }catch(NullPointerException e){
+            System.out.println("\nPosição de item inexistente");
+            System.out.println("Tente Novamente.");
+        }
+    }       
+       
+}
