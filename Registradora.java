@@ -15,7 +15,7 @@ public class Registradora {
             int id = ent.nextInt();
             switch(id){
                 case 1:{
-                    venda = new Venda(spec,reg);
+                    venda = new Venda(spec);
                     this.menuVenda();
                 }
                 case 0:{
