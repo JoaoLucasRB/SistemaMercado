@@ -9,7 +9,7 @@ public class SistemaMercado {
     public static void main(String[] args) {
         // TODO code application logic here
         Registradora reg = new Registradora();
-        reg.novaVenda();
+        reg.menuRegistradora();
         
     }
     
