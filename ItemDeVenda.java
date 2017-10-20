@@ -10,8 +10,9 @@ public class ItemDeVenda {
 
     @Override
     public String toString() {
-        return "ItemDeVenda{" + "id=" + id + ", desc=" + desc + ", preco=" + preco + '}';
+        return "ID= " + id + ", Desc= " + desc + ", Preço= " + preco;
     }
     
     
 }
+
