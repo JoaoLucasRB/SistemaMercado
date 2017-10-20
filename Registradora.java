@@ -33,15 +33,15 @@ public class Registradora {
     
     public void menuVenda(){
         try{
-        int id = 0;
-        Scanner ent = new Scanner(System.in);
-        System.out.println("\nTotal: " + venda.Total);
-        System.out.println("1. Incluir novo Item");
-        System.out.println("2. Remover item");
-        System.out.println("0. Encerrar Venda");
+            int id;
+            Scanner ent = new Scanner(System.in);
+            System.out.println("\nTotal: " + venda.Total);
+            System.out.println("1. Incluir novo Item");
+            System.out.println("2. Remover item");
+            System.out.println("0. Encerrar Venda");
         
-                System.out.println("Opcao: ");
-                id = ent.nextInt();
+            System.out.println("Opcao: ");
+            id = ent.nextInt();
             
             switch(id){
                 case 1: {
