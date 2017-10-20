@@ -17,6 +17,7 @@ public class CatalProdutos {
     public void encontrar(int id){
         
         if(spec.idDesc.containsKey(id)){
+            
             iDV.desc = spec.idDesc.get(id);
             iDV.preco = spec.descPreco.get(spec.idDesc.get(id));
             iDV.id = id;
