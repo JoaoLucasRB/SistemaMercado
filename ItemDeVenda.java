@@ -7,10 +7,11 @@ public class ItemDeVenda {
     String desc;
     Float preco;
     EspecProduto spec;
+    int n;
 
     @Override
     public String toString() {
-        return "ID= " + id + ", Desc= " + desc + ", Preço= " + preco;
+        return (++n) + "  -  " + "ID= " + id + ", Desc= " + desc + ", Preço= " + preco;
     }
     
     
