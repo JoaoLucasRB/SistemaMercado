@@ -11,7 +11,7 @@ public class ItemDeVenda {
 
     @Override
     public String toString() {
-        return (++n) + "  -  " + "ID= " + id + ", Desc= " + desc + ", Preço= " + preco;
+        return "ID= " + id + ", Desc= " + desc + ", Preço= " + preco;
     }
     
     
